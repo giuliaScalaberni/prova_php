@@ -8,7 +8,8 @@
 <?php 
 
 if (isset($_GET['sub'])){
-	array_push($_SESSION['carrello'],$_GET['id'],$_GET['qnt']);
+	$_SESSION['carrello'][$_GET['id']]=$_GET['qnt'];
+	//array_push($_SESSION['carrello'],$_GET['id'],$_GET['qnt']);
 	print_r($_SESSION['carrello']) ;
 }
 ?>

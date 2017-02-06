@@ -27,7 +27,7 @@ if((isset($_GET['email']))&&(isset($_GET['psw'])))
 		//header("location: http://localhost/informatica/5A%20IA/prova_php/reserved.php");
 		$_SESSION['log']='ok';
 		$_SESSION['email']=$_GET['email'];
-		$_SESSION['carrello']=array(array('',''));
+		$_SESSION['carrello']=array();
 	}
 	else{
 		echo 'incorrect data';
