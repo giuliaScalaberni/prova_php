@@ -20,27 +20,25 @@
 	<th>Prezzo</th> 
 	<th>Qnt </th>
 	<th> </th>
+	<th> </th>
 	
 </tr><?php
-$j=0;
     for ($i = 0; $i <sizeof($_SESSION['carrello']); $i++) {
 		
-        echo "<form><tr><td>".($_SESSION['carrello'][$i][$j])."</td>";
-		 //echo "<td>".($_SESSION["carrello"][$i])."</td>";
+        echo "<form><tr><td>".($_SESSION['carrello'][$i]['id'])."</td>";
+		
 		 //echo "<td>".($_SESSION["carrello"][$i])."</td> ";
 		  //echo "<td>".print_r($_SESSION["carrello"])."</td> ";
 		 echo '<td><div>';
 		 echo '<td><div>';
+		  echo "<td>".($_SESSION["carrello"][$i]['qnt'])."</td>";
 		 echo '<td><div>';
 		  echo '<td><div>';?>
-  <button type="button" class="btn btn-default">+</button> 
-  <button type="button" class="btn btn-default">-</button>
-  <button type='submit' name="sub"  class='btn btn-info'>Add</button>
-  <input type="text" class="form-control col-xs-2" name="qnt"/>
+
+  <button type='submit' name="rem"  class='btn btn-warning'>Remove</button>
   <input type="hidden" name="id" value="<?php echo htmlspecialchars($row['id']); ?>" />
 </div></td></tr></form>
 	<?php 
-	$j++;
    }
 	  
 echo '</table>';
