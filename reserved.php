@@ -82,7 +82,7 @@ if ($result->rowCount() > 0) {?>
 		 echo '<td><div>'?>
   <button type="button" class="btn btn-default">+</button> 
   <button type="button" class="btn btn-default">-</button>
-  <button type='submit' name="sub"  class='btn btn-default'>ORDER</button>
+  <button type='submit' name="sub"  class='btn btn-info'>Add</button>
   <input type="text" class="form-control col-xs-2" name="qnt"/>
   <input type="hidden" name="id" value="<?php echo htmlspecialchars($row['id']); ?>" />
 </div></td></tr></form>;
@@ -94,7 +94,7 @@ echo '</table>';
 	
     echo mysql_error();
 }?>
-        
+        <button type="button" class="btn btn-default" onclick="parent.location='shop.php'">View your shopping</button> 
        </div>  
 
 	<div class="col-md-4"></div>
