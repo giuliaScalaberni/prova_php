@@ -21,9 +21,10 @@ $newdata =  array (
       
     );
 	array_push($_SESSION['carrello'],$newdata);
-	print_r($_SESSION['carrello']) ;
+	
 	
 	}
+	print_r($_SESSION['carrello']) ;
 }
 ?>
  <body>
