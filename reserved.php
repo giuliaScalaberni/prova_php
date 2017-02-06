@@ -35,8 +35,8 @@ if (isset($_GET['sub'])){
 if (isset($_SESSION['log'])) {
 	echo 'Logged as '.$_SESSION['email'];
  } else {
-	//header("location: http://localhost/login.php");
-	header("location: http://localhost/informatica/5A%20IA/prova_php/login.php");
+	header("location: http://localhost/php/login.php");
+	//header("location: http://localhost/informatica/5A%20IA/prova_php/login.php");
  }
 
  ?>
@@ -52,8 +52,8 @@ if (isset($_SESSION['log'])) {
         <?php
 		
 		try{
-	//$connect=new PDO('mysql:dbname=quintaa_login;localhost','root','miomio');
-	$connect=new PDO('mysql:dbname=quintaa_login;localhost','quintaa','NB7U@91A');
+	$connect=new PDO('mysql:dbname=quintaa_login;localhost','root','miomio');
+	//$connect=new PDO('mysql:dbname=quintaa_login;localhost','quintaa','NB7U@91A');
 }
 catch(PDOException $e){
 	echo 'CONNECTION FAILED: '.$e->getMessage();
