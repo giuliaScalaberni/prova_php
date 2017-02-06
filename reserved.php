@@ -8,19 +8,22 @@
 <?php 
 
 if (isset($_GET['sub'])){
+	$i;
+for ($i = 0; $i <sizeof($_SESSION['carrello']); $i++){
+if ($_SESSION["carrello"][$i]['id']==$_GET['id']){
+	$_SESSION["carrello"][$i]['qnt']=$_SESSION["carrello"][$i]['qnt']+$_GET['qnt'];
+	break;}
+}
+if ($i>=sizeof($_SESSION['carrello'])){
 $newdata =  array (
       'id' =>$_GET['id'],
       'qnt' => $_GET['qnt']
       
     );
 	array_push($_SESSION['carrello'],$newdata);
-	
-	
-	
-	
-	//$_SESSION['carrello'][sizeof($_SESSION['carrello'])]=$_GET['qnt'];
-	//array_push($_SESSION['carrello'],$_GET['id'],$_GET['qnt']);
 	print_r($_SESSION['carrello']) ;
+	
+	}
 }
 ?>
  <body>

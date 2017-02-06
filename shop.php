@@ -49,12 +49,6 @@ echo '</table>';
 
 	<div class="col-md-4">
 	<?php 
-
-/*if (isset($_GET['sub'])){
-	$_SESSION['carrello'][$_GET['id']]=$_GET['qnt'];
-	//array_push($_SESSION['carrello'],$_GET['id'],$_GET['qnt']);
-	print_r($_SESSION['carrello']) ;
-}*/
 if (isset($_SESSION['log'])) {
 	echo 'Logged as '.$_SESSION['email'];
  } else {
