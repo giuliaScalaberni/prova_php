@@ -8,7 +8,7 @@
 <?php 
 
 if (isset($_GET['sub'])){
-	$_SESSION['carrello'][$_GET['id']]=$_GET['qnt'];
+	$_SESSION['carrello'][sizeof($_SESSION['carrello'])][$_GET['id']]=$_GET['qnt'];
 	//array_push($_SESSION['carrello'],$_GET['id'],$_GET['qnt']);
 	print_r($_SESSION['carrello']) ;
 }
