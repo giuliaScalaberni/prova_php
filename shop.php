@@ -23,14 +23,16 @@
 	
 </tr><?php
 $j=0;
-    for ($i = 0; $i <sizeof( $_SESSION['carrello']); $i++) {
+    for ($i = 0; $i <sizeof($_SESSION['carrello']); $i++) {
 		
-        echo "<form><tr><td>".($_SESSION['carrello'][$i])."</td>";
-		 echo "<td>".($_SESSION["carrello"][$i])."</td>";
-		 echo "<td>".($_SESSION["carrello"][$i])."</td> ";
+        echo "<form><tr><td>".($_SESSION['carrello'][$i][$j])."</td>";
+		 //echo "<td>".($_SESSION["carrello"][$i])."</td>";
+		 //echo "<td>".($_SESSION["carrello"][$i])."</td> ";
 		  //echo "<td>".print_r($_SESSION["carrello"])."</td> ";
 		 echo '<td><div>';
-		 echo '<td><div>';?>
+		 echo '<td><div>';
+		 echo '<td><div>';
+		  echo '<td><div>';?>
   <button type="button" class="btn btn-default">+</button> 
   <button type="button" class="btn btn-default">-</button>
   <button type='submit' name="sub"  class='btn btn-info'>Add</button>
