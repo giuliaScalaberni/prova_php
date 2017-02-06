@@ -7,7 +7,7 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <?php 
 
-if (isset($_GET['sub'])){
+if (isset($_GET['sub'])&&($_GET['qnt']!='')){
 	$i;
 for ($i = 0; $i <sizeof($_SESSION['carrello']); $i++){
 if ($_SESSION["carrello"][$i]['id']==$_GET['id']){
