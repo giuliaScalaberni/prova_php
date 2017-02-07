@@ -37,8 +37,9 @@ $newdata =  array (
     <span class="caret"></span>
   </button>
   <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-    <li><a href="reserved.php?cat=home" selected>Home</a></li>
-    <li><a href="reserved.php?cat=outdoor">Outdoor</a></li>
+    <li><a href="reserved.php?cat=1" selected>Home</a></li>
+    <li><a href="reserved.php?cat=2">Outdoor</a></li>
+	<li><a href="reserved.php?cat=3">Kitchen</a></li>
   </ul>
 	</div>
 	
@@ -74,9 +75,9 @@ catch(PDOException $e){
 	echo 'CONNECTION FAILED: '.$e->getMessage();
 }
 if (!isset($_GET['cat'])){
-	$_GET['cat']='home';
+	$_GET['cat']='1';
 }
-$sql = "SELECT id, Descrizione, Prezzo FROM ".$_GET['cat'];
+$sql = "SELECT idProd, descrizione, prezzo FROM products where Categories_idCat=".$_GET['cat'];
 $result = $connect->query($sql);
 if ($result->rowCount() > 0) {?>
 <table class="table table-striped">
@@ -90,15 +91,15 @@ if ($result->rowCount() > 0) {?>
 </tr><?php
     // output data of each row
     while($row = $result->fetch(PDO::FETCH_ASSOC)) {
-        echo "<form><tr><td>".$row["id"]."</td>";
-		 echo "<td>".$row["Descrizione"]."</td>";
-		 echo "<td>".$row["Prezzo"]."</td> ";
+        echo "<form><tr><td>".$row["idProd"]."</td>";
+		 echo "<td>".$row["descrizione"]."</td>";
+		 echo "<td>".$row["prezzo"]."</td> ";
 		 echo '<td><div>'?>
   <button type="button" class="btn btn-default">+</button> 
   <button type="button" class="btn btn-default">-</button>
   <button type='submit' name="sub"  class='btn btn-info'>Add</button>
   <input type="text" class="form-control col-xs-2" name="qnt"/>
-  <input type="hidden" name="id" value="<?php echo htmlspecialchars($row['id']); ?>" />
+  <input type="hidden" name="id" value="<?php echo htmlspecialchars($row['idProd']); ?>" />
 </div></td></tr></form>;
 	<?php 
     }
