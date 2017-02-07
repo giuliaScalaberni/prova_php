@@ -44,7 +44,7 @@ catch(PDOException $e){
 }
 
 
-
+$tot=0;
     for ($i = 0; $i <sizeof($_SESSION['carrello']); $i++) {
 		$sql = "SELECT idProd, descrizione, prezzo FROM products where idProd=".$_SESSION['carrello'][$i]['id'];
 		$result = $connect->query($sql);
@@ -56,7 +56,9 @@ catch(PDOException $e){
 		 echo '<td>'.$row['prezzo'].'<div>';
 		  echo "<td>".($_SESSION["carrello"][$i]['qnt'])."</td>";
 		 echo '<td><div>';
-		  echo '<td><div>';?>
+		  echo '<td><div>';
+		  $tot+=$_SESSION["carrello"][$i]['qnt']*$row['prezzo'];
+		  ?>
 
   <button type='submit' name="rem"  class='btn btn-warning'>Remove</button>
   <input type="hidden" name="id" value="<?php echo htmlspecialchars($_SESSION['carrello'][$i]['id']); ?>" />
@@ -66,7 +68,7 @@ catch(PDOException $e){
 	  
 echo '</table>';
 
-?>
+?>		<h3>TOT € <?php echo $tot?></h3>
         <button type="button" class="btn btn-default" onclick="parent.location='reserved.php'">Back</button> 
        </div>  
 
