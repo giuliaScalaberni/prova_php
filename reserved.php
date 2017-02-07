@@ -85,7 +85,7 @@
 						echo "<td>".$row["prezzo"]."</td> ";
 						echo '<td><div>'?>
 						<div class="input-group">
-							<input type="text" class="form-control" placeholder="-x for delete">
+							<input type="text"  name='qnt' class="form-control" placeholder="-x for delete">
 							<span class="input-group-btn">
 								<button type='submit' name="sub"  class='btn btn-info'>Add</button>
 								<input type="hidden" name="id" value="<?php echo htmlspecialchars($row['idProd']);?>"/>
