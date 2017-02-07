@@ -6,8 +6,8 @@
 <?php 
 
 try{
-	$connect=new PDO('mysql:dbname=quintaa_login;localhost','root','miomio');
-	//$connect=new PDO('mysql:dbname=quintaa_login;localhost','quintaa','NB7U@91A');
+	//$connect=new PDO('mysql:dbname=quintaa_login;localhost','root','miomio');
+	$connect=new PDO('mysql:dbname=quintaa_login;localhost','quintaa','NB7U@91A');
 }
 catch(PDOException $e){
 	echo 'CONNECTION FAILED: '.$e->getMessage();
@@ -23,8 +23,8 @@ if((isset($_GET['email']))&&(isset($_GET['psw'])))
 	$row=$stm->rowCount() ;
 	if ($row> 0) {
   
-		header("location:http://localhost:9000/php/reserved.php");
-		//header("location: http://localhost/informatica/5A%20IA/prova_php/reserved.php");
+		//header("location:http://localhost:9000/php/reserved.php");
+		header("location: http://localhost/informatica/5A%20IA/prova_php/reserved.php");
 		$_SESSION['log']='ok';
 		$_SESSION['email']=$_GET['email'];
 		$_SESSION['carrello'] =  array (

@@ -60,8 +60,8 @@ echo '</table>';
 if (isset($_SESSION['log'])) {
 	echo 'Logged as '.$_SESSION['email'];
  } else {
-	header("location: http://localhost/php/login.php");
-	//header("location: http://localhost/informatica/5A%20IA/prova_php/login.php");
+	//header("location: http://localhost/php/login.php");
+	header("location: http://localhost/informatica/5A%20IA/prova_php/login.php");
  }
 ?>
 

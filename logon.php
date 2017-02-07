@@ -8,8 +8,8 @@
 <?php 
 
 try{
-	$connect=new PDO('mysql:dbname=quintaa_login;localhost','root','miomio');
-	//$connect=new PDO('mysql:dbname=quintaa_login;localhost','quintaa','NB7U@91A');
+	//$connect=new PDO('mysql:dbname=quintaa_login;localhost','root','miomio');
+	$connect=new PDO('mysql:dbname=quintaa_login;localhost','quintaa','NB7U@91A');
 }
 catch(PDOException $e){
 	echo 'CONNECTION FAILED: '.$e->getMessage();
@@ -28,8 +28,8 @@ $stm->bindValue(':password',md5($_GET['psw']));
  
  $_SESSION['log']='ok';
  $_SESSION['email']=$_GET['email'];
-header("location:http://localhost:9000/php/reserved.php");
-//header("location: http://localhost/informatica/5A%20IA/prova_php/reserved.php");
+//header("location:http://localhost:9000/php/reserved.php");
+header("location: http://localhost/informatica/5A%20IA/prova_php/reserved.php");
  }
  if ($stm->errorInfo()[1]==1062)
  {echo 'email già registrata';
