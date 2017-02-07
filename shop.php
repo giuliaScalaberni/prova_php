@@ -33,12 +33,27 @@ print_r($_SESSION['carrello']) ;}
 	<th> </th>
 	<th> </th>
 	
-</tr><?php
-    for ($i = 0; $i <sizeof($_SESSION['carrello']); $i++) {
+</tr>  <?php
 		
+		try{
+	//$connect=new PDO('mysql:dbname=quintaa_login;localhost','root','miomio');
+	$connect=new PDO('mysql:dbname=quintaa_login;localhost','quintaa','NB7U@91A');
+}
+catch(PDOException $e){
+	echo 'CONNECTION FAILED: '.$e->getMessage();
+}
+
+
+
+    for ($i = 0; $i <sizeof($_SESSION['carrello']); $i++) {
+		$sql = "SELECT idProd, descrizione, prezzo FROM products where idProd=".$_SESSION['carrello'][$i]['id'];
+		$result = $connect->query($sql);
+		$row = $result->fetch(PDO::FETCH_ASSOC);
+		
+		//$row = $result->fetch(PDO::FETCH_ASSOC);
         echo "<form><tr><td>".($_SESSION['carrello'][$i]['id'])."</td>";
-		 echo '<td><div>';
-		 echo '<td><div>';
+		 echo '<td>'.$row['descrizione'].'<div>';
+		 echo '<td>'.$row['prezzo'].'<div>';
 		  echo "<td>".($_SESSION["carrello"][$i]['qnt'])."</td>";
 		 echo '<td><div>';
 		  echo '<td><div>';?>

@@ -100,7 +100,7 @@ if ($result->rowCount() > 0) {?>
   <button type='submit' name="sub"  class='btn btn-info'>Add</button>
   <input type="text" class="form-control col-xs-2" name="qnt"/>
   <input type="hidden" name="id" value="<?php echo htmlspecialchars($row['idProd']); ?>" />
-</div></td></tr></form>;
+</div></td></tr></form>
 	<?php 
     }
 	  
