@@ -72,8 +72,8 @@
 		echo 'Logged as '.$_SESSION['email'];
 		} 
 		else {
-		//header("location: http://localhost/php/login.php");
-		header("location: http://localhost/informatica/5A%20IA/prova_php/login.php");
+			//header("location: http://localhost/php/login.php");
+			header("location: http://localhost/informatica/5A%20IA/prova_php/login.php");
 		}
 ?>
 				<button type="button" button type="button" class="btn btn-danger" id="logout" onclick="window.location='logout.php'">Log out</button>
