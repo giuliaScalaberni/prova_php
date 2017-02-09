@@ -29,14 +29,20 @@
 			}
 			else{
 		if ($stm->errorInfo()[1]==1062){
-			echo 'email già registrata';
+			echo '<div class="alert alert-danger alert-dismissible" role="alert">';
+			echo '<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>';
+			echo '<strong>Warning!</strong> Email already registered! Please enter another one.</div>';
 		}
 		else { 
-			echo 'error unknow!';
+			echo '<div class="alert alert-danger alert-dismissible" role="alert">';
+			echo '<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>';
+			echo '<strong>OPS!</strong> An error occurred.</div>';
 			}}
 	}
 	else 
-		echo 'passwords not corresponding';
+		echo '<div class="alert alert-danger alert-dismissible" role="alert">';
+			echo '<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>';
+			echo '<strong>OPS!</strong> Passwords not corresponded</div>';
 	}
 
 ?>
