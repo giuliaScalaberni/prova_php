@@ -8,11 +8,14 @@
 		$i;
 		for ($i = 0; $i <sizeof($_SESSION['carrello']); $i++){
 			if ($_SESSION["carrello"][$i]['id']==$_GET['id']){
-			$_SESSION["carrello"][$i]['qnt']=$_SESSION["carrello"][$i]['qnt']+$_GET['qnt'];
+				$_SESSION["carrello"][$i]['qnt']=$_SESSION["carrello"][$i]['qnt']+$_GET['qnt'];
+				if($_SESSION["carrello"][$i]['qnt']<=0){
+					array_splice($_SESSION['carrello'],$_SESSION["carrello"][$i][$_GET['id']] , 1);
+				}
 			break;
 			}
 		}
-		if ($i>=sizeof($_SESSION['carrello'])){
+		if (($i>=sizeof($_SESSION['carrello']))&& ($_GET['qnt']>0)){
 			$newdata =  array ('id' =>$_GET['id'], 'qnt' => $_GET['qnt']);
 			array_push($_SESSION['carrello'],$newdata);
 		}
