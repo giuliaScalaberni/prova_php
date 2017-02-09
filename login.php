@@ -28,11 +28,15 @@
 				//$_SESSION['carrello']=array(array());
 			}
 		else{
-			echo 'incorrect data';
+			echo '<div class="alert alert-danger alert-dismissible" role="alert">';
+			echo '<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>';
+			echo '<strong>Warning!</strong> Incorrect data</div>';
 		}
 	}
 	else 
-		echo 'bad entry!';
+		echo '<div class="alert alert-danger alert-dismissible" role="alert">';
+		echo '<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>';
+		echo '<strong>Warning!</strong> Invalid password or email</div>';
 	}
 ?>
 	<body>
