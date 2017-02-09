@@ -23,15 +23,16 @@
 		<div class="row">
 			<div class="col-md-4"></div>
 			<div class="col-md-4">
-				<div class="dropdown">
+				<h2 class="text-center">e-commerce</h2>
+				<div  class="dropdown">
 					<button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-						Categories
+						Categories 
 						<span class="caret"></span>
 					</button>
 					<ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-						<li><a href="reserved.php?cat=1" selected>Home</a></li>
+						<li><a href="reserved.php?cat=1"selected>Home</a></li>
 						<li><a href="reserved.php?cat=2">Outdoor</a></li>
-						<li><a href="reserved.php?cat=3">Kitchen</a></li>
+						<li><a href="reserved.php?cat=3">Kitchen</a></li>	
 					</ul>
 				</div>
 			</div>
@@ -48,62 +49,65 @@
 ?>
 				<button type="button" button type="button" class="btn btn-danger" id="logout" onclick="window.location='logout.php'">Log out</button>
 			</div>
-			<br>
-			<div class="row">
-				<div class="col-md-4"></div>
-				<div class="col-md-4">
+		</div>
+		<br>
+		<div class="row">
+			<div class="col-md-4"></div>
+			<div class="col-md-4">
 <?php
-		
-				try{
-					//$connect=new PDO('mysql:dbname=quintaa_login;localhost','root','miomio');
-					$connect=new PDO('mysql:dbname=quintaa_login;localhost','quintaa','NB7U@91A');
-				}
-				catch(PDOException $e){
-					echo 'CONNECTION FAILED: '.$e->getMessage();
-				}
-				if (!isset($_GET['cat'])){
-					$_GET['cat']='1';
-				}
-				$sql = "SELECT idProd, descrizione, prezzo FROM products where Categories_idCat=".$_GET['cat'];
-				$result = $connect->query($sql);
-				if ($result->rowCount() > 0) {
+	
+			try{
+				//$connect=new PDO('mysql:dbname=quintaa_login;localhost','root','miomio');
+				$connect=new PDO('mysql:dbname=quintaa_login;localhost','quintaa','NB7U@91A');
+			}
+			catch(PDOException $e){
+				echo 'CONNECTION FAILED: '.$e->getMessage();
+			}
+			if (!isset($_GET['cat'])){
+				$_GET['cat']='1';
+			}
+			/*$sql2 = "SELECT idProd, descrizione, prezzo FROM categories where Categories_idCat=".$_GET['cat'];
+			$result2 = $connect2->query($sql2);*/
+			$sql = "SELECT idProd, descrizione, prezzo FROM products where Categories_idCat=".$_GET['cat'];
+			$result = $connect->query($sql);
+			if ($result->rowCount() > 0) {
 ?>
-					<table class="table table-striped">
-						<tr>
-							<th>Codice prodotto</th>
-							<th>Descrizione</th>
-							<th>Prezzo</th> 
-							<th> </th>
-							<th> </th>
-							
-						</tr>
+				<table class="table table-striped">
+					<tr>
+						<th>Codice prodotto</th>
+						<th>Descrizione</th>
+						<th>Prezzo</th> 
+						<th> </th>
+						<th> </th>
+						
+					</tr>
 <?php
-					// output data of each row
-					while($row = $result->fetch(PDO::FETCH_ASSOC)) {
-						echo "<form><tr><td>".$row["idProd"]."</td>";
-						echo "<td>".$row["descrizione"]."</td>";
-						echo "<td>".$row["prezzo"]."</td> ";
-						echo '<td><div>'?>
-						<div class="input-group">
-							<input type="text"  name='qnt' class="form-control" placeholder="-x for delete">
-							<span class="input-group-btn">
-								<button type='submit' name="sub"  class='btn btn-info'>Add</button>
-								<input type="hidden" name="id" value="<?php echo htmlspecialchars($row['idProd']);?>"/>
-							</span>
-						</div><!-- /input-group -->
-					</div></td></tr></form>
+				// output data of each row
+				while($row = $result->fetch(PDO::FETCH_ASSOC)) {
+					echo "<form><tr><td>".$row["idProd"]."</td>";
+					echo "<td>".$row["descrizione"]."</td>";
+					echo "<td>".$row["prezzo"]."</td> ";
+					echo '<td><div>'?>
+					<div class="input-group">
+						<input type="text"  name='qnt' class="form-control" placeholder="-x for delete">
+						<span class="input-group-btn">
+							<button type='submit' name="sub"  class='btn btn-info'>Add</button>
+							<input type="hidden" name="id" value="<?php echo htmlspecialchars($row['idProd']);?>"/>
+						</span>
+					</div><!-- /input-group -->
+				</div></td></tr></form>
 <?php 
-					}
-	  
-					echo '</table>';
-				}					 
-				else {
-					echo mysql_error();
 				}
+  
+				echo '</table>';
+			}					 
+			else {
+				echo mysql_error();
+			}
 ?>
-					<button type="button" class="btn btn-default" onclick="parent.location='shop.php'">View your shopping</button> 
-				</div>  
-				<div class="col-md-4"></div>
-			</div>
-	</body>
+				<button type="button" class="btn btn-default" onclick="parent.location='shop.php'">View your shopping</button> 
+			</div>  
+			<div class="col-md-4"></div>
+		</div>
+</body>
 </html>

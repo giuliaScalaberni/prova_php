@@ -46,7 +46,6 @@
 						$sql = "SELECT idProd, descrizione, prezzo FROM products where idProd=".$_SESSION['carrello'][$i]['id'];
 						$result = $connect->query($sql);
 						$row = $result->fetch(PDO::FETCH_ASSOC);
-						//$row = $result->fetch(PDO::FETCH_ASSOC);
 						echo "<form><tr><td>".($_SESSION['carrello'][$i]['id'])."</td>";
 						echo '<td>'.$row['descrizione'].'<div>';
 						echo '<td>'.$row['prezzo'].'<div>';

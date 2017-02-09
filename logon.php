@@ -23,15 +23,17 @@
 				echo 'utente registrato';
 				$_SESSION['log']='ok';
 				$_SESSION['email']=$_GET['email'];
+				$_SESSION['carrello'] =  array ();
 				//header("location:http://localhost:9000/php/reserved.php");
 				header("location: http://localhost/informatica/5A%20IA/prova_php/reserved.php");
 			}
+			else{
 		if ($stm->errorInfo()[1]==1062){
 			echo 'email già registrata';
 		}
 		else { 
 			echo 'error unknow!';
-		}
+			}}
 	}
 	else 
 		echo 'passwords not corresponding';
@@ -39,9 +41,10 @@
 
 ?>
 	<body>
-		<h2>REGISTRAZIONE</h2>
+		
 		<div class="col-xs-6 col-md-4" ></div>
 		<div  class="col-xs-6 col-md-4" >
+			<h2 class="text-center">REGISTER in e-commerce</h2>
 			<form role="form" class="form-horizontal" action="logon.php" name="modulo" id="modulo"  method="get">
 				<div class="form-group">
 					<label for="inputNome">Name</label>

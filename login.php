@@ -39,6 +39,7 @@
 		<form role="form" class="form-horizontal" action="login.php"   name="login" id="login" method="get">
 			<div class="col-xs-6 col-md-4" ></div>
 			<div  class="col-xs-6 col-md-4" >
+				<h2 class="text-center">e-commerce ACCOUNT</h2>
 				<div class="form-group">
 					<label for="exampleInputEmail1">Email address</label>
 					<input type="email" class="form-control" id="exampleInputEmail1"  name="email" placeholder="Email" required>
@@ -50,5 +51,9 @@
 				<button type="submit"  class="btn btn-default">Log in</button>
 			</div>
 		</form>
+	
+		<div class="col-xs-6 col-md-4" >
+			<button type="button" class="btn btn-info" class='text-center' onclick='parent.location="logon.php"'>Log On </a>
+		</div>
 	</body>
 </html>
